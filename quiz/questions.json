@@ -1,0 +1,46 @@
+[
+  {
+    "text": "Who is widely considered the first computer programmer?",
+    "hint": "This person wrote theoretical programs for the Babbage mechanical computer",
+    "answer": 2,
+    "choices": [
+      "Alan Turing",
+      "Isaac Newton",
+      "Ada Lovelace",
+      "Linus Torvalds"
+    ]
+  },
+  {
+    "text": "What was the name of the first programmable electronic general purpose computer?",
+    "hint": "This device was designed for numerical computation",
+    "answer": 1,
+    "choices": [
+      "Deep Blue",
+      "ENIAC",
+      "The Colossus",
+      "CSIRAC"
+    ]
+  },
+  {
+    "text": "What was the first compiled high-level programming language?",
+    "hint": "This programming language is still in use today, although very rarely",
+    "answer": 3,
+    "choices": [
+      "COBOL",
+      "C",
+      "Autocode",
+      "FORTRAN"
+    ]
+  },
+  {
+    "text": "Which programming language was created by Netscape to add dynamic behavior to web pages?",
+    "hint": "Unlike a language with a similar name, this one wasn't used to write Minecraft",
+    "answer": 1,
+    "choices": [
+      "Ruby",
+      "JavaScript",
+      "Java",
+      "HTML"
+    ]
+  }
+]
