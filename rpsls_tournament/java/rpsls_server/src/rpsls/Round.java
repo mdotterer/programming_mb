@@ -32,6 +32,10 @@ public class Round {
 		}
 	}
 	
+	public Round reverse() {
+		return new Round(throwB, throwA);
+	}
+	
 	public String toString() {
 		return throwA.toString() + " " + verbs[throwA.throwId][throwB.throwId] + " " + throwB.toString();
 	}
