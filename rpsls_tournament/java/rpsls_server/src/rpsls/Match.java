@@ -15,8 +15,6 @@ public class Match {
 		rounds = new Round[bestOf];
 		winCounts = new int[] {0,0,0};
 		
-		int winsNeeded;
-		
 		for(int i=0; i < bestOf; i++) {
 			rounds[i] = new Round(player1.chooseThrow(), player2.chooseThrow());
 			player1.roundOver(rounds[i]);

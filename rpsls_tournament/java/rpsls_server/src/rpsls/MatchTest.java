@@ -8,8 +8,8 @@ class MatchTest {
 
 	@Test
 	void testBasicRockBasicSpock() {
-		Player rockPlayer = new BasicRockPlayer();
-		Player spockPlayer = new BasicSpockPlayer();
+		Player rockPlayer = new BasicPlayer(Throw.rock());
+		Player spockPlayer = new BasicPlayer(Throw.spock());
 		Match match = new Match(rockPlayer, spockPlayer, 3);
 		
 		assertEquals(spockPlayer, match.winner());
