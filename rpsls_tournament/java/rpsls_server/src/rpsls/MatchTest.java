@@ -8,13 +8,33 @@ class MatchTest {
 
 	@Test
 	void testBasicRockBasicSpock() {
-		Player rockPlayer = new BasicPlayer(Throw.rock());
-		Player spockPlayer = new BasicPlayer(Throw.spock());
+		Player rockPlayer = new ConstantPlayer(Throw.rock());
+		Player spockPlayer = new ConstantPlayer(Throw.spock());
 		Match match = new Match(rockPlayer, spockPlayer, 3);
 		
 		assertEquals(spockPlayer, match.winner());
 		assertEquals(0, match.player1WinCount());
 		assertEquals(2, match.player2WinCount());
 	}
-
+	
+	@Test
+	void testIdenticalStrategies() {
+		Player player1 = new ConstantPlayer(Throw.lizard());
+		Player player2 = new ConstantPlayer(Throw.lizard());
+		Match match = new Match(player1, player2, 3);
+		
+		assertNull(match.winner());		
+	}
+	
+	@Test
+	void testCommonTieStrategies() {
+		Player player1 = new RotationPlayer("Classic", new Throw[] {Throw.rock(), Throw.paper(), Throw.scissors()});
+		Player player2 = new RotationPlayer("Other", new Throw[] {Throw.spock(), Throw.paper(), Throw.lizard()});
+		Match match = new Match(player1, player2, 3);
+		
+		assertEquals(player2, match.winner());
+		assertEquals(1, match.player1WinCount());
+		assertEquals(2, match.player2WinCount());
+		assertEquals(1, match.tieCount());
+	}
 }

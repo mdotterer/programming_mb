@@ -29,8 +29,10 @@ public class Throw {
 		return new Throw(4);
 	}
 	
-	public boolean equals(Throw otherThrow) {
-		return this.throwId == otherThrow.throwId;
+	@Override
+	public boolean equals(Object otherThrow) {
+		if(!(otherThrow instanceof Throw)) { return false; }
+		return this.throwId == ((Throw)otherThrow).throwId;
 	}
 	
 	public boolean beats(Throw otherThrow) {

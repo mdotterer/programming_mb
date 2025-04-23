@@ -26,7 +26,7 @@ public class Bracket {
 			if(seed < players.length) {
 				this.players[p] = players[seed];
 			} else {
-				this.players[p] = new BasicPlayer();
+				this.players[p] = new ConstantPlayer();
 			}
 		}
 		

@@ -1,30 +1,29 @@
 package rpsls;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Match {
 	public Player player1;
 	public Player player2;
 	public int bestOf;
 	
-	private Round[] rounds;
+	private List<Round> rounds;
 	private int[] winCounts;
 	
 	public Match(Player player1, Player player2, int bestOf) {
 		this.bestOf = bestOf;
 		this.player1 = player1;
 		this.player2 = player2;
-		rounds = new Round[bestOf];
+		rounds = new ArrayList<Round>();
 		winCounts = new int[] {0,0,0};
 		
-		for(int i=0; i < bestOf; i++) {
-			rounds[i] = new Round(player1.chooseThrow(), player2.chooseThrow());
-			player1.roundOver(rounds[i]);
-			player2.roundOver(rounds[i].reverse());
-			winCounts[rounds[i].winner()] += 1;
-			
-			if(winCounts[1] > (winCounts[2] + bestOf - i - 1) ||
-					winCounts[2] > (winCounts[1] + bestOf - i - i)) {
-				break;
-			}
+		while(winCounts[1] <= (bestOf / 2) && winCounts[2] <= (bestOf / 2) && rounds.size() < bestOf * 100) {
+			Round newRound = new Round(player1.chooseThrow(), player2.chooseThrow()); 
+			rounds.add(newRound);
+			player1.roundOver(newRound);
+			player2.roundOver(newRound.reverse());
+			winCounts[newRound.winner()] += 1;
 		}
 	}
 	

@@ -1,6 +1,6 @@
 package rpsls;
 
-public class BasicPlayer implements Player {
+public class ConstantPlayer implements Player {
 
 	private Throw myFavoriteThrow;
 	
@@ -8,11 +8,11 @@ public class BasicPlayer implements Player {
 	
 	private static String[] names = {"The Boulder", "Fiskars", "Dinosaur", "Dunder Mifflin", "Leanord Nimoy"};
 		
-	public BasicPlayer() {
+	public ConstantPlayer() {
 		this(new Throw(nextThrow++ % 5));
 	}
 	
-	public BasicPlayer(Throw throw1) {
+	public ConstantPlayer(Throw throw1) {
 		myFavoriteThrow = throw1;
 	}
 
