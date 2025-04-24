@@ -48,4 +48,12 @@ public class Match {
 			return null;
 		}
 	}
+	
+	public int getRoundCount() {
+		return rounds.size();
+	}
+	
+	public Round getRound(int index) {
+		return rounds.get(index);
+	}
 }

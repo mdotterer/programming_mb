@@ -1,9 +1,16 @@
 package rpsls;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public class Bracket {
 	public Player[] players;
 	
-	public Match[] matches;
+	public List<Match> matches;
+	
+	private Player winner;
 	
 	public static int pollPosition(int seed, int total) {
 		if(total < 2) {
@@ -16,7 +23,7 @@ public class Bracket {
 		}
 	}
 	
-	public Bracket(int rounds, Player[] players) {		
+	public Bracket(int rounds, int startRounds, Player[] players) {		
 		int playerCount = 2 << (rounds-1);
 		
 		this.players = new Player[playerCount];
@@ -30,15 +37,41 @@ public class Bracket {
 			}
 		}
 		
-		matches = new Match[playerCount-1];
+		matches = new ArrayList<Match>();
 		
-		Player[] activePlayers = players;
+		List<Player> activePlayers = new ArrayList<Player>(Arrays.asList(this.players));
 		
-		while(activePlayers.length > 1) {
-			Player[] winningPlayers = new Player[activePlayers.length >> 1];
-			for(int i=0; i < winningPlayers.length; i++) {
+		int roundCount = startRounds;
+		
+		while(activePlayers.size() > 1) {
+			List<Player> winningPlayers = new ArrayList<Player>();
+			for(int i=0; i < activePlayers.size() >> 1; i++) {
+				Player player1 = activePlayers.get(2*i);
+				Player player2 = activePlayers.get(2*i+1);
+				Match match = new Match(player1, player2, roundCount);
 				
+				matches.add(match);
+				
+				if(match.winner() != null) {
+					winningPlayers.add(match.winner());
+				} else {	
+					// Coin flip
+					if(new Random().nextInt(2) == 0) {
+						winningPlayers.add(player1);
+					} else {
+						winningPlayers.add(player2);
+					}
+				}
 			}
+			
+			activePlayers = winningPlayers;
+			roundCount = (roundCount+1) << 2  - 1;
 		}
+		
+		winner = activePlayers.get(0);
+	}
+	
+	public Player getWinner() {
+		return winner;
 	}
 }
