@@ -36,6 +36,9 @@ public class Throw {
 	}
 	
 	public boolean beats(Throw otherThrow) {
+		if(otherThrow == null) {
+			return true;
+		}
 		return !equals(otherThrow) && 
 				(((5 + otherThrow.throwId - this.throwId) % 5) <= 2);
 	}

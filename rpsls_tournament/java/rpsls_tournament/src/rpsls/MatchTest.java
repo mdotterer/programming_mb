@@ -37,4 +37,40 @@ class MatchTest {
 		assertEquals(2, match.player2WinCount());
 		assertEquals(1, match.tieCount());
 	}
+	
+	@Test
+	void testNullPlayer1() {
+		Player player1 = new RotationPlayer("Broken", new Throw[] {null});
+		Player player2 = new ConstantPlayer(Throw.lizard());
+		Match match = new Match(player1, player2, 3);
+		
+		assertEquals(player2, match.winner());
+		assertEquals(0, match.player1WinCount());
+		assertEquals(2, match.player2WinCount());
+		assertEquals(0, match.tieCount());
+	}
+	
+	@Test
+	void testNullPlayer2() {
+		Player player1 = new ConstantPlayer(Throw.rock());
+		Player player2 = new RotationPlayer("Broken", new Throw[] {null});
+		Match match = new Match(player1, player2, 3);
+		
+		assertEquals(player1, match.winner());
+		assertEquals(2, match.player1WinCount());
+		assertEquals(0, match.player2WinCount());
+		assertEquals(0, match.tieCount());
+	}
+	
+	@Test
+	void testDualNullPlayers() {
+		Player player1 = new RotationPlayer("Tweedledee", new Throw[] {null});
+		Player player2 = new RotationPlayer("Tweedledum", new Throw[] {null});
+		Match match = new Match(player1, player2, 3);
+		
+		assertEquals(null, match.winner());
+		assertEquals(0, match.player1WinCount());
+		assertEquals(0, match.player2WinCount());
+		assertEquals(300, match.tieCount());
+	}
 }
