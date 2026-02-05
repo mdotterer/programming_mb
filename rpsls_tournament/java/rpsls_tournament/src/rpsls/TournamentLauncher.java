@@ -58,7 +58,7 @@ public class TournamentLauncher {
 		}
 				
 		
-		Bracket bracket = new Bracket(3, 101, players.toArray(new Player[] {}));
+		Bracket bracket = new Bracket(players.toArray(new Player[] {}), 101, true);
 		
 		System.out.println("Running Tournament!");
 		
@@ -71,12 +71,14 @@ public class TournamentLauncher {
 				System.out.println(match.getRound(j).toString());
 				Thread.sleep(Math.round(1000.0/(Math.pow(j+1,2))));
 			}
-			if(match.winner() != null) {
-				System.out.println(match.winner().name() + " wins!");
-			} else {
+			if(match.wasTie()) {
 				System.out.println("Tie! Coin flip will decide the winner...");
+				Thread.sleep(2000);
 			}
+			System.out.println(match.winner().name() + " wins!");
 			waitForInput();
 		}
+		
+		System.out.println(bracket.getWinner().name() + " has won the tournament!");
 	}
 }

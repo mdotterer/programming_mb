@@ -23,7 +23,8 @@ class MatchTest {
 		Player player2 = new ConstantPlayer(Throw.lizard());
 		Match match = new Match(player1, player2, 3);
 		
-		assertNull(match.winner());		
+		assertTrue(match.wasTie());
+		assertNotNull(match.winner());		
 	}
 	
 	@Test
@@ -68,9 +69,10 @@ class MatchTest {
 		Player player2 = new RotationPlayer("Tweedledum", new Throw[] {null});
 		Match match = new Match(player1, player2, 3);
 		
-		assertEquals(null, match.winner());
+		assertNotNull(match.winner());
 		assertEquals(0, match.player1WinCount());
 		assertEquals(0, match.player2WinCount());
 		assertEquals(300, match.tieCount());
+		assertTrue(match.wasTie());
 	}
 }

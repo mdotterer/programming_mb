@@ -2,6 +2,8 @@ package rpsls;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 public class Match {
 	public Player player1;
@@ -11,6 +13,10 @@ public class Match {
 	private List<Round> rounds;
 	private int[] winCounts;
 	
+	private Player coinFlipWinner;
+	
+	private static Random rand = new Random();
+		
 	public Match(Player player1, Player player2, int bestOf) {
 		this.bestOf = bestOf;
 		this.player1 = player1;
@@ -44,9 +50,16 @@ public class Match {
 			return player1;
 		} else if(player2WinCount() > player1WinCount()) {
 			return player2;
+		} else if(coinFlipWinner != null){
+			return coinFlipWinner;
 		} else {
-			return null;
+			coinFlipWinner = rand.nextBoolean() ? player1 : player2; 
+			return coinFlipWinner;
 		}
+	}
+	
+	public boolean wasTie() {
+		return (player1WinCount() == player2WinCount());
 	}
 	
 	public int getRoundCount() {

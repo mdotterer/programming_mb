@@ -61,6 +61,7 @@ public class PlayerRoster {
 			switch(categories[i]) {
 			case Current:
 				register(new MyPlayer());
+				break;
 			case Stock:
 				register(new ConstantPlayer(Throw.rock()));
 				register(new ConstantPlayer(Throw.paper()));
@@ -72,12 +73,14 @@ public class PlayerRoster {
                 register(new RotationPlayer("Charlie", new Throw[]{Throw.paper(), Throw.spock(), Throw.rock(), Throw.paper()}));
 				register(new RotationPlayer("Delta", new Throw[]{Throw.scissors(), Throw.paper(), Throw.spock(), Throw.spock()}));
 				register(new RotationPlayer("Echo", new Throw[]{Throw.lizard(),Throw.lizard(),Throw.lizard(),Throw.spock()}));
+				break;
 			case Example:
 				register(new NATHANDOTTERERALGORITHMwefbgrtgh());
 				register(new BakerMayfieldUniversity());
 				register(new Da_Beam_Beam_boom_boom_bam_bam_pow_pow_bot_bot_fr_fr());
 				register(new amelia_hazel_dotterer());
 				register(new JoshuasRPSSLrobot());
+				break;
 			}
 		}
 	}

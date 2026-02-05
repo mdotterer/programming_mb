@@ -23,8 +23,14 @@ public class Bracket {
 		}
 	}
 	
-	public Bracket(int rounds, int startRounds, Player[] players) {		
-		int playerCount = 2 << (rounds-1);
+	public Bracket(Player[] players, int startRounds, boolean softStart) {
+		int bracketRounds = softStart ? 1 : 0;
+		int remaining = players.length;
+		while(remaining > 0) {
+			bracketRounds++;
+			remaining >>= 1;
+		}
+		int playerCount = 2 << (bracketRounds-1);
 		
 		this.players = new Player[playerCount];
 		
@@ -70,7 +76,7 @@ public class Bracket {
 		
 		winner = activePlayers.get(0);
 	}
-	
+		
 	public Player getWinner() {
 		return winner;
 	}
