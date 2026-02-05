@@ -16,6 +16,8 @@ public class Match {
 	private Player coinFlipWinner;
 	
 	private static Random rand = new Random();
+	
+	private int bracketRound;
 		
 	public Match(Player player1, Player player2, int bestOf) {
 		this.bestOf = bestOf;
@@ -68,5 +70,13 @@ public class Match {
 	
 	public Round getRound(int index) {
 		return rounds.get(index);
+	}
+	
+	public int getBracketRound() {
+		return bracketRound;
+	}
+	
+	public void setBracketRound(int newBracketRound) {
+		bracketRound = newBracketRound;
 	}
 }

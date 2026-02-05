@@ -48,6 +48,7 @@ public class Bracket {
 		List<Player> activePlayers = new ArrayList<Player>(Arrays.asList(this.players));
 		
 		int roundCount = startRounds;
+		int bracketRound = 0;
 		
 		while(activePlayers.size() > 1) {
 			List<Player> winningPlayers = new ArrayList<Player>();
@@ -55,6 +56,7 @@ public class Bracket {
 				Player player1 = activePlayers.get(2*i);
 				Player player2 = activePlayers.get(2*i+1);
 				Match match = new Match(player1, player2, roundCount);
+				match.setBracketRound(bracketRound);
 				
 				matches.add(match);
 				
@@ -72,6 +74,7 @@ public class Bracket {
 			
 			activePlayers = winningPlayers;
 			roundCount = (roundCount+1) << 2  - 1;
+			bracketRound++;
 		}
 		
 		winner = activePlayers.get(0);
