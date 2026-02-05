@@ -1,26 +1,64 @@
 package rpsls;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class TournamentLauncher {
+	
+	public static Scanner scanner = new Scanner(System.in);
+	
 	public static void waitForInput() {
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			// Proceed to next match!
+		scanner.nextLine();
+	}
+	
+	public static int prompt(String question, String[] options) {
+		System.out.println(question);
+		
+		for(int i = 0; i < options.length; i++) {
+			System.out.println(String.valueOf(i+1) + ") " + options[i]);
 		}
+		
+		int choice = 0;
+		
+		while(choice < 1 || choice > options.length) {
+			System.out.print("> ");
+			choice = scanner.nextInt();
+		}
+		
+		return choice;
 	}
 
 	public static void main(String args[]) throws InterruptedException {
-		Player[] players = {
-			new RotationPlayer("Alfa", new Throw[]{Throw.rock(), Throw.paper(), Throw.scissors()}),
-			new RotationPlayer("Bravo", new Throw[]{Throw.lizard(), Throw.spock()}),
-			new RotationPlayer("Charlie", new Throw[]{Throw.paper(), Throw.spock(), Throw.rock(), Throw.paper()}),
-			new RotationPlayer("Delta", new Throw[]{Throw.scissors(), Throw.paper(), Throw.spock(), Throw.spock()}),
-			new RotationPlayer("Echo", new Throw[]{Throw.lizard(),Throw.lizard(),Throw.lizard(),Throw.spock()})
-		};
+		int playerChoice = prompt("What players do you want to pick from?", new String[] {
+				"Current Participants Only",
+				"Stock Participants Only",
+				"Current & Stock Participants",
+				"Example Participants Only",
+				"Current & Example Participants",
+				"Stock & Example Participants",
+				"Current, Stock, & Example Participants"
+		});
 		
-		Bracket bracket = new Bracket(3, 101, players);
+		List<PlayerRoster.Category> categories = new ArrayList<PlayerRoster.Category>();
+		if((playerChoice & 1) > 0) { categories.add(PlayerRoster.Category.Current); } 
+		if((playerChoice & 2) > 0) { categories.add(PlayerRoster.Category.Stock); }
+		if((playerChoice & 4) > 0) { categories.add(PlayerRoster.Category.Example); }
+		
+		PlayerRoster roster = new PlayerRoster(categories.toArray(new PlayerRoster.Category[] {}));
+		
+		List<Player> players = new ArrayList<Player>();
+				
+		while(players.size() < roster.size()) {
+			PlayerRoster reducedRoster = roster.unusedRoster(players);
+			playerChoice = prompt("Who gets seed #" + String.valueOf(players.size()+1) + "?",
+					reducedRoster.getPlayerNames().toArray(new String[] {})
+			);
+			players.add(reducedRoster.get(playerChoice-1));
+		}
+				
+		
+		Bracket bracket = new Bracket(3, 101, players.toArray(new Player[] {}));
 		
 		System.out.println("Running Tournament!");
 		
