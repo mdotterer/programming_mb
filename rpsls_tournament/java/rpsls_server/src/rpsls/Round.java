@@ -1,8 +1,8 @@
 package rpsls;
 
 public class Round {
-	Throw throwA;
-	Throw throwB;
+	public Throw throwA;
+	public Throw throwB;
 	
 	public Round(Throw throwA, Throw throwB) {
 		this.throwA = throwA;
