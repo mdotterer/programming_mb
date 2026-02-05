@@ -3,6 +3,14 @@ package rpsls;
 import java.io.IOException;
 
 public class TournamentLauncher {
+	public static void waitForInput() {
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// Proceed to next match!
+		}
+	}
+
 	public static void main(String args[]) throws InterruptedException {
 		Player[] players = {
 			new RotationPlayer("Alfa", new Throw[]{Throw.rock(), Throw.paper(), Throw.scissors()}),
@@ -20,21 +28,17 @@ public class TournamentLauncher {
 			Match match = bracket.matches.get(i);
 			System.out.println(String.format("Match #%d", i+1));
 			System.out.println(match.player1.name() + " vs. " + match.player2.name());
-			Thread.sleep(2000);
+			waitForInput();
 			for(int j=0; j<match.getRoundCount(); j++) {
-				Thread.sleep(100);
 				System.out.println(match.getRound(j).toString());
+				Thread.sleep(Math.round(1000.0/(Math.pow(j+1,2))));
 			}
 			if(match.winner() != null) {
 				System.out.println(match.winner().name() + " wins!");
 			} else {
 				System.out.println("Tie! Coin flip will decide the winner...");
 			}
-			try {
-				System.in.read();
-			} catch (IOException e) {
-				// Proceed to next match!
-			}
+			waitForInput();
 		}
 	}
 }
