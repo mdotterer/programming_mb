@@ -1,5 +1,7 @@
 package rpsls;
 
+import java.io.IOException;
+
 public class TournamentLauncher {
 	public static void main(String args[]) throws InterruptedException {
 		Player[] players = {
@@ -10,7 +12,7 @@ public class TournamentLauncher {
 			new RotationPlayer("Echo", new Throw[]{Throw.lizard(),Throw.lizard(),Throw.lizard(),Throw.spock()})
 		};
 		
-		Bracket bracket = new Bracket(3, 7, players);
+		Bracket bracket = new Bracket(3, 101, players);
 		
 		System.out.println("Running Tournament!");
 		
@@ -28,7 +30,11 @@ public class TournamentLauncher {
 			} else {
 				System.out.println("Tie! Coin flip will decide the winner...");
 			}
-			Thread.sleep(2000);
+			try {
+				System.in.read();
+			} catch (IOException e) {
+				// Proceed to next match!
+			}
 		}
 	}
 }
