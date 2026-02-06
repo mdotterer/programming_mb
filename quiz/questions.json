@@ -53,5 +53,38 @@
       "C": "Charles Babbage",
       "D": "James Conway"
     }
+  },
+  {
+    "text": "What is the most common low level language in use today?",
+    "hint": "Released in 1972, it has two successors with similar names that add more high level features.",
+    "answer": "C",
+    "choices": {
+      "A": "Autocode",
+      "B": "BASIC",
+      "C": "C",
+      "D": "Python"
+    }
+  },
+  {
+    "text": "What is considred the first dynamically typed language?",
+    "hint": "This language broke new ground in many ways and still has a cult following, notably Randal Munroe of XKCD.",
+    "answer": "D",
+    "choices": {
+      "A": "Smalltalk",
+      "B": "FORTRAN",
+      "C": "Ruby",
+      "D": "LISP"
+    }
+  },
+  {
+    "text": "What does RISC stand for?",
+    "hint": "This was a style of computer architecture that reduced complexity for more optimized chips but less human programmable assembly",
+    "answer": "B",
+    "choices": {
+      "A": "Really Intuitive Style Chip",
+      "B": "Reduced Instruction Set Computer",
+      "C": "Random Insert System Calculus",
+      "D": "Rotational Inertial Space Combinator"
+    }
   }
 ]
