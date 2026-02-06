@@ -1,5 +1,6 @@
 package rpsls;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -31,5 +32,17 @@ public class InputHandler {
 				roster.getPlayerNames().toArray(new String[] {})
 		);
 		return roster.get(choice-1);			
+	}
+	
+	public Player pickPlayer(String query, PlayerRoster roster, String nullOption) {
+		List<String> optionList = roster.getPlayerNames();
+		optionList.add(nullOption);
+				
+		int choice = prompt(query, optionList.toArray(new String[] {}));
+		if(choice <= roster.size()) {
+			return roster.get(choice-1);
+		} else {
+			return null;
+		}
 	}
 }

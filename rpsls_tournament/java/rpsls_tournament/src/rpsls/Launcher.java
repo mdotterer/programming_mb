@@ -32,10 +32,15 @@ public class Launcher {
 			runner = new MatchRunner(new Match(playerA, playerB, bestOf));
 		} else {
 			List<Player> players = new ArrayList<Player>();
-			while(players.size() < roster.size()) {
-				players.add(input.pickPlayer(
-						"Who gets seed #" + String.valueOf(players.size()+1) + "?",
-						roster.unusedRoster(players)));
+			Player nextPlayer = null; 
+			while((players.size() == 0 || nextPlayer != null) && players.size() < roster.size()) {				
+				nextPlayer = input.pickPlayer(
+						"Who is seed #" + String.valueOf(players.size()+1) + "?",
+						roster.unusedRoster(players),
+						"Start Tournament");
+				if(nextPlayer != null) {
+					players.add(nextPlayer);
+				}
 			}	
 			
 			runner = new BracketRunner(new Bracket(players.toArray(new Player[] {}), bestOf, true));
