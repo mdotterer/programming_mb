@@ -13,7 +13,7 @@ public class Launcher {
 		PlayerRoster roster = new PlayerRoster(new PlayerRoster.Category[] {
 				PlayerRoster.Category.Current,
 				PlayerRoster.Category.Stock,
-//				PlayerRoster.Category.Example
+				// PlayerRoster.Category.Example
 		});
 
 		Runner runner;
@@ -21,7 +21,7 @@ public class Launcher {
 		int choice;
 		
 		choice = input.prompt("What do you want to run?", new String[] {
-				"A Face Off between two teams",
+				"A Face Off between two players",
 				"A Tournament"
 		});
 		
