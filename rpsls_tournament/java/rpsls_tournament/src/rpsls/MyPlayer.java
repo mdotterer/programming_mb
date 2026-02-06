@@ -19,4 +19,10 @@ public class MyPlayer implements Player {
 		lastThrow = round.throwB;
 	}
 
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

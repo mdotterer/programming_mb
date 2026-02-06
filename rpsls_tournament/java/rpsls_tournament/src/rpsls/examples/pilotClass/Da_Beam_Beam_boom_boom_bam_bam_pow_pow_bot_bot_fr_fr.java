@@ -27,4 +27,10 @@ public class Da_Beam_Beam_boom_boom_bam_bam_pow_pow_bot_bot_fr_fr implements Pla
 	public void roundOver(Round round) {
 	}
 
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

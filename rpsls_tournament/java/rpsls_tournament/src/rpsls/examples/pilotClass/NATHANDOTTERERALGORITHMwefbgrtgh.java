@@ -26,4 +26,10 @@ public class NATHANDOTTERERALGORITHMwefbgrtgh implements Player {
 	@Override
 	public void roundOver(Round round) {
 	}
+
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
 }

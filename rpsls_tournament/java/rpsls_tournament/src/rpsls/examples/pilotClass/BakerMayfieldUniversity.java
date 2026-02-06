@@ -22,4 +22,10 @@ public class BakerMayfieldUniversity implements Player {
 	public void roundOver(Round round) {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
 }

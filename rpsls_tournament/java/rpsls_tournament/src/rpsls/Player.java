@@ -6,4 +6,6 @@ public interface Player {
 	public Throw chooseThrow();
 	
 	public void roundOver(Round round);
+	
+	public void matchStarted(String opponentName);
 }

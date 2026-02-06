@@ -4,12 +4,10 @@ public class ConstantPlayer implements Player {
 
 	private Throw myFavoriteThrow;
 	
-	private static int nextThrow = 0;
-	
 	private static String[] names = {"The Boulder", "Fiskars", "Dinosaur", "Dunder Mifflin", "Leanord Nimoy"};
 		
 	public ConstantPlayer() {
-		this(new Throw(nextThrow++ % 5));
+		this(Throw.random());
 	}
 	
 	public ConstantPlayer(Throw throw1) {
@@ -28,5 +26,11 @@ public class ConstantPlayer implements Player {
 
 	@Override
 	public void roundOver(Round round) {
+	}
+
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
 	}
 }

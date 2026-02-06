@@ -38,4 +38,10 @@ public class amelia_hazel_dotterer implements Player {
 
 	}
 
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

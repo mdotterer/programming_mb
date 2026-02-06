@@ -26,6 +26,12 @@ public class RotationPlayer implements Player {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

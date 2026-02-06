@@ -1,7 +1,11 @@
 package rpsls;
 
+import java.util.Random;
+
 public class Throw {
 	int throwId;
+	
+	private static Random rng = new Random();
 	
 	public Throw(int newThrowId) {
 		throwId = newThrowId;
@@ -27,6 +31,10 @@ public class Throw {
 
 	public static Throw spock() {
 		return new Throw(4);
+	}
+	
+	public static Throw random() {
+		return new Throw(rng.nextInt(5));
 	}
 	
 	@Override

@@ -27,4 +27,10 @@ public class JoshuasRPSSLrobot implements Player {
 		count ++;
 	}
 
+	@Override
+	public void matchStarted(String opponentName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

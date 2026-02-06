@@ -26,6 +26,9 @@ public class Match {
 		rounds = new ArrayList<Round>();
 		winCounts = new int[] {0,0,0};
 		
+		player1.matchStarted(player2.name());
+		player2.matchStarted(player1.name());
+		
 		while(winCounts[1] <= (bestOf / 2) && winCounts[2] <= (bestOf / 2) && rounds.size() < bestOf * 100) {
 			Round newRound = new Round(player1.chooseThrow(), player2.chooseThrow()); 
 			rounds.add(newRound);
