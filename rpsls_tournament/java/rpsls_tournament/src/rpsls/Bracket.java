@@ -24,12 +24,19 @@ public class Bracket {
 	}
 	
 	public Bracket(Player[] players, int startRounds, boolean softStart) {
-		int bracketRounds = softStart ? 1 : 0;
+		int bracketRounds = 0;
 		int remaining = players.length;
-		while(remaining > 0) {
+		while(remaining > 1) {
 			bracketRounds++;
 			remaining >>= 1;
 		}
+		
+		if(players.length > 1 << bracketRounds) {
+			bracketRounds++;
+		}
+		
+		if(softStart) { bracketRounds++; }
+
 		int playerCount = 2 << (bracketRounds-1);
 		
 		this.players = new Player[playerCount];
