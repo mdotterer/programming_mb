@@ -6,6 +6,7 @@ import rpsls.Throw;
 
 public class amelia_hazel_dotterer implements Player {
 	private Throw lastThrow;
+
 	@Override
 	public String name() {
 		return "amelia :b";
@@ -20,19 +21,20 @@ public class amelia_hazel_dotterer implements Player {
 			return Throw.spock();
 		}
 		if (lastThrow.equals(Throw.lizard())){
-		 	return Throw.scissors();
+			return Throw.scissors();
 		}
 		if (lastThrow.equals(Throw.spock())){
 			return Throw.paper();
-		 }
+		}
 		if (lastThrow.equals(Throw.scissors())){
 			return Throw.rock();
-			 }
+		}
 		// if (lastThrow.equals(Throw.paper())){
 		return Throw.lizard();
 	}
+
 	public void roundOver(Round round) {
-	lastThrow=round.throwB;
+		lastThrow=round.throwB;
 
 	}
 

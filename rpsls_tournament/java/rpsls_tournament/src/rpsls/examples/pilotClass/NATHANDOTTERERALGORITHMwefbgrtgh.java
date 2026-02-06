@@ -9,7 +9,6 @@ public class NATHANDOTTERERALGORITHMwefbgrtgh implements Player {
 	int Prev=0;
 	@Override
 	public String name() {
-		// TODO Auto-generated method stub
 		return "mun";
 	}
 
@@ -26,8 +25,5 @@ public class NATHANDOTTERERALGORITHMwefbgrtgh implements Player {
 
 	@Override
 	public void roundOver(Round round) {
-		// TODO Auto-generated method stub
-
 	}
-
 }

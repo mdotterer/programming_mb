@@ -5,11 +5,9 @@ import rpsls.Player;
 import rpsls.Round;
 import rpsls.Throw;
 public class Da_Beam_Beam_boom_boom_bam_bam_pow_pow_bot_bot_fr_fr implements Player {
-	private Throw lastthrow;
 	private Random rand=new Random();
 	@Override
 	public String name() {
-		// TODO Auto-generated method stub
 		return "Da beam bot fr fr :]";
 	}
 
@@ -22,12 +20,11 @@ public class Da_Beam_Beam_boom_boom_bam_bam_pow_pow_bot_bot_fr_fr implements Pla
 			if (r==2) {return Throw.scissors();}
 			if (r==3) {return Throw.rock();}
 			return Throw.paper();
-			} 
-		}
+		} 
+	}
 
 	@Override
 	public void roundOver(Round round) {
-		lastthrow=round.throwB;
 	}
 
 }

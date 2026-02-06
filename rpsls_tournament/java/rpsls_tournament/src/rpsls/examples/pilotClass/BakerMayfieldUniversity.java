@@ -21,7 +21,5 @@ public class BakerMayfieldUniversity implements Player {
 	@Override
 	public void roundOver(Round round) {
 		// TODO Auto-generated method stub
-
 	}
-
 }

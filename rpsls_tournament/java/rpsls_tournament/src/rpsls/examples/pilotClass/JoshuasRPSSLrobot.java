@@ -7,10 +7,9 @@ import rpsls.Throw;
 public class JoshuasRPSSLrobot implements Player {
 
 	private int count=0;
-	
+
 	@Override
 	public String name() {
-		// TODO Auto-generated method stub
 		return "Josh's grillcheese turkey hot pocket bannnnnnannnnnnnnna banana win win win win win win win win win win win win win win win win win niw nwi inw RPSSL robot";
 	}
 
@@ -21,13 +20,11 @@ public class JoshuasRPSSLrobot implements Player {
 		} else {
 			return Throw.spock();
 		}
-	
 	}
 
 	@Override
 	public void roundOver(Round round) {
-		// TODO Auto-generated method stub
-count ++;
+		count ++;
 	}
 
 }

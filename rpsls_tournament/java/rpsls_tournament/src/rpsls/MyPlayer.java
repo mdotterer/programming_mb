@@ -16,7 +16,6 @@ public class MyPlayer implements Player {
 
 	@Override
 	public void roundOver(Round round) {
-		// TODO Auto-generated method stub
 		lastThrow = round.throwB;
 	}
 
