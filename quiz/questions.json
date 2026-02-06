@@ -2,45 +2,56 @@
   {
     "text": "Who is widely considered the first computer programmer?",
     "hint": "This person wrote theoretical programs for the Babbage mechanical computer",
-    "answer": 2,
-    "choices": [
-      "Alan Turing",
-      "Isaac Newton",
-      "Ada Lovelace",
-      "Linus Torvalds"
-    ]
+    "answer": "C",
+    "choices": {
+      "A": "Alan Turing",
+      "B": "Isaac Newton",
+      "C": "Ada Lovelace",
+      "D": "Linus Torvalds"
+    }
   },
   {
     "text": "What was the name of the first programmable electronic general purpose computer?",
     "hint": "This device was designed for numerical computation",
-    "answer": 1,
-    "choices": [
-      "Deep Blue",
-      "ENIAC",
-      "The Colossus",
-      "CSIRAC"
-    ]
+    "answer": "B",
+    "choices": {
+      "A": "Deep Blue",
+      "B": "ENIAC",
+      "C": "The Colossus",
+      "D": "CSIRAC"
+    }
   },
   {
     "text": "What was the first compiled high-level programming language?",
     "hint": "This programming language is still in use today, although very rarely",
-    "answer": 3,
-    "choices": [
-      "COBOL",
-      "C",
-      "Autocode",
-      "FORTRAN"
-    ]
+    "answer": "D",
+    "choices": {
+      "A": "COBOL",
+      "B": "C",
+      "C": "Autocode",
+      "D": "FORTRAN"
+    }
   },
   {
     "text": "Which programming language was created by Netscape to add dynamic behavior to web pages?",
     "hint": "Unlike a language with a similar name, this one wasn't used to write Minecraft",
-    "answer": 1,
-    "choices": [
-      "Ruby",
-      "JavaScript",
-      "Java",
-      "HTML"
-    ]
+    "answer": "B",
+    "choices": {
+      "A": "Ruby",
+      "B": "JavaScript",
+      "C": "Java",
+      "D": "HTML"
+    }
+  },
+  {
+    "text": "Who is considered the inventor of the World Wide Web?",
+    "hint": "This English Computer scienctist is still alive today and doesn't have a penchant for naming things after himself.",
+    "answer": "A",
+    "choices": {
+      "A": "Tim Berners-Lee",
+      "B": "Linus Torvalds",
+      "C": "Charles Babbage",
+      "D": "James Conway"
+    }
   }
 ]
